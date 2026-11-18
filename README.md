@@ -4,7 +4,7 @@ This repository contains skill packages, execution utilities, and evaluation res
 
 ## Benchmark results
 
-Results for six selected configurations are shown below. All scores are percentages, reported to one decimal place.
+Results for seven selected configurations are shown below. All scores are percentages. GLM-5.3-Flash reports the first execution round.
 
 | Model | Harness | Overall | Deliverable | Procedure | Restraint |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -14,6 +14,7 @@ Results for six selected configurations are shown below. All scores are percenta
 | GPT-5.6 Luna | Claude Code | 49.3% | 50.9% | 42.1% | 51.8% |
 | Grok 4.5 | Codex | 40.7% | 44.7% | 29.0% | 35.7% |
 | Grok 4.5 | Claude Code | 42.1% | 44.5% | 34.4% | 41.7% |
+| GLM-5.3-Flash | Claude Code | 57.59% | 59.07% | 54.98% | 58.26% |
 
 [Download the displayed configuration scores as CSV](results/configuration_scores.csv)
 
@@ -35,6 +36,7 @@ Results for six selected configurations are shown below. All scores are percenta
 | GPT-5.6 Luna | Claude Code | 51.5% | 46.2% | 48.2% |
 | Grok 4.5 | Codex | 43.2% | 48.6% | 34.9% |
 | Grok 4.5 | Claude Code | 42.9% | 43.3% | 41.5% |
+| GLM-5.3-Flash | Claude Code | 59.15% | 60.50% | 65.28% |
 
 ### Procedure
 
@@ -46,6 +48,7 @@ Results for six selected configurations are shown below. All scores are percenta
 | GPT-5.6 Luna | Claude Code | 39.2% | 39.8% | 49.5% |
 | Grok 4.5 | Codex | 31.0% | 20.0% | 34.3% |
 | Grok 4.5 | Claude Code | 37.1% | 17.7% | 35.4% |
+| GLM-5.3-Flash | Claude Code | 48.83% | 53.48% | 55.05% |
 
 ### Restraint
 
@@ -57,12 +60,13 @@ Results for six selected configurations are shown below. All scores are percenta
 | GPT-5.6 Luna | Claude Code | 59.0% | 48.2% | 30.9% |
 | Grok 4.5 | Codex | 44.1% | 19.3% | 30.9% |
 | Grok 4.5 | Claude Code | 45.9% | 32.6% | 39.7% |
+| GLM-5.3-Flash | Claude Code | 68.95% | 48.55% | 52.94% |
 
 </details>
 
 ## Evaluation setting
 
-The six displayed configurations use the same 96 skill–task pairs, with one scored execution per pair. Claude Opus 5, GPT-5.6 Luna, and Grok 4.5 are each evaluated under Codex and Claude Code.
+The seven displayed configurations use the same 96 skill–task pairs, with one scored execution per pair. Claude Opus 5, GPT-5.6 Luna, and Grok 4.5 are each evaluated under Codex and Claude Code. GLM-5.3-Flash is evaluated under Claude Code; its scores here use only the first of three independent execution rounds.
 
 Deterministic checks and LLM judgments evaluate individual requirements using execution evidence. For each configuration, scores are calculated within each skill and then averaged across skills. Each category or subcategory includes the skills with assessed requirements of that type. **Overall is calculated from all assessed requirements; it is not the average of the three category scores.** These are adherence scores, with task success evaluated separately.
 
@@ -71,4 +75,4 @@ Deterministic checks and LLM judgments evaluate individual requirements using ex
 - [`complex-skills/`](complex-skills/): skill packages and associated task and scoring specifications.
 - [`runner_core.py`](runner_core.py) and [`runner_retrigger.py`](runner_retrigger.py): execution utilities.
 - [`judge.py`](judge.py): reference judging implementation.
-- [`results/configuration_scores.csv`](results/configuration_scores.csv): the six displayed configurations and all 13 adherence scores, stored as numeric percentages on a 0–100 scale.
+- [`results/configuration_scores.csv`](results/configuration_scores.csv): the seven displayed configurations and all 13 adherence scores, stored as numeric percentages on a 0–100 scale.
