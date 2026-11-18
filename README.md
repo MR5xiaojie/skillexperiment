@@ -4,16 +4,16 @@ This repository contains skill packages, execution utilities, and evaluation res
 
 ## Benchmark results
 
-Results for seven selected configurations are shown below. All scores are percentages. GLM-5.3-Flash reports the first execution round.
+Results for seven selected configurations are shown below. All scores are percentages, rounded to two decimal places. GLM-5.3-Flash reports the first execution round.
 
 | Model | Harness | Overall | Deliverable | Procedure | Restraint |
 | --- | --- | ---: | ---: | ---: | ---: |
-| Claude Opus 5 | Codex | 53.0% | 55.3% | 47.9% | 49.7% |
-| Claude Opus 5 | Claude Code | 53.1% | 53.6% | 51.9% | 55.7% |
-| GPT-5.6 Luna | Codex | 48.8% | 51.6% | 39.3% | 50.4% |
-| GPT-5.6 Luna | Claude Code | 49.3% | 50.9% | 42.1% | 51.8% |
-| Grok 4.5 | Codex | 40.7% | 44.7% | 29.0% | 35.7% |
-| Grok 4.5 | Claude Code | 42.1% | 44.5% | 34.4% | 41.7% |
+| Claude Opus 5 | Codex | 52.97% | 55.30% | 47.94% | 49.73% |
+| Claude Opus 5 | Claude Code | 53.06% | 53.61% | 51.90% | 55.71% |
+| GPT-5.6 Luna | Codex | 48.82% | 51.60% | 39.34% | 50.38% |
+| GPT-5.6 Luna | Claude Code | 49.26% | 50.92% | 42.13% | 51.81% |
+| Grok 4.5 | Codex | 40.65% | 44.69% | 28.95% | 35.72% |
+| Grok 4.5 | Claude Code | 42.13% | 44.50% | 34.35% | 41.70% |
 | GLM-5.3-Flash | Claude Code | 57.59% | 59.07% | 54.98% | 58.26% |
 
 [Download the displayed configuration scores as CSV](results/configuration_scores.csv)
@@ -30,36 +30,36 @@ Results for seven selected configurations are shown below. All scores are percen
 
 | Model | Harness | Content | Format | Coverage |
 | --- | --- | ---: | ---: | ---: |
-| Claude Opus 5 | Codex | 56.3% | 58.1% | 50.2% |
-| Claude Opus 5 | Claude Code | 54.1% | 55.7% | 53.8% |
-| GPT-5.6 Luna | Codex | 52.0% | 50.3% | 50.9% |
-| GPT-5.6 Luna | Claude Code | 51.5% | 46.2% | 48.2% |
-| Grok 4.5 | Codex | 43.2% | 48.6% | 34.9% |
-| Grok 4.5 | Claude Code | 42.9% | 43.3% | 41.5% |
+| Claude Opus 5 | Codex | 56.28% | 58.08% | 50.18% |
+| Claude Opus 5 | Claude Code | 54.09% | 55.69% | 53.83% |
+| GPT-5.6 Luna | Codex | 52.03% | 50.33% | 50.89% |
+| GPT-5.6 Luna | Claude Code | 51.52% | 46.18% | 48.20% |
+| Grok 4.5 | Codex | 43.20% | 48.61% | 34.86% |
+| Grok 4.5 | Claude Code | 42.91% | 43.34% | 41.48% |
 | GLM-5.3-Flash | Claude Code | 59.15% | 60.50% | 65.28% |
 
 ### Procedure
 
 | Model | Harness | Step | Evidence | Tool |
 | --- | --- | ---: | ---: | ---: |
-| Claude Opus 5 | Codex | 42.0% | 50.1% | 44.4% |
-| Claude Opus 5 | Claude Code | 52.2% | 50.7% | 47.5% |
-| GPT-5.6 Luna | Codex | 37.4% | 35.8% | 35.4% |
-| GPT-5.6 Luna | Claude Code | 39.2% | 39.8% | 49.5% |
-| Grok 4.5 | Codex | 31.0% | 20.0% | 34.3% |
-| Grok 4.5 | Claude Code | 37.1% | 17.7% | 35.4% |
+| Claude Opus 5 | Codex | 41.95% | 50.06% | 44.44% |
+| Claude Opus 5 | Claude Code | 52.22% | 50.70% | 47.47% |
+| GPT-5.6 Luna | Codex | 37.38% | 35.79% | 35.35% |
+| GPT-5.6 Luna | Claude Code | 39.24% | 39.75% | 49.49% |
+| Grok 4.5 | Codex | 31.00% | 19.96% | 34.34% |
+| Grok 4.5 | Claude Code | 37.11% | 17.71% | 35.35% |
 | GLM-5.3-Flash | Claude Code | 48.83% | 53.48% | 55.05% |
 
 ### Restraint
 
 | Model | Harness | Negative | Boundary | Termination |
 | --- | --- | ---: | ---: | ---: |
-| Claude Opus 5 | Codex | 56.9% | 44.0% | 42.7% |
-| Claude Opus 5 | Claude Code | 60.7% | 43.6% | 54.4% |
-| GPT-5.6 Luna | Codex | 56.6% | 49.4% | 38.2% |
-| GPT-5.6 Luna | Claude Code | 59.0% | 48.2% | 30.9% |
-| Grok 4.5 | Codex | 44.1% | 19.3% | 30.9% |
-| Grok 4.5 | Claude Code | 45.9% | 32.6% | 39.7% |
+| Claude Opus 5 | Codex | 56.86% | 43.96% | 42.65% |
+| Claude Opus 5 | Claude Code | 60.65% | 43.60% | 54.41% |
+| GPT-5.6 Luna | Codex | 56.57% | 49.40% | 38.24% |
+| GPT-5.6 Luna | Claude Code | 59.02% | 48.19% | 30.88% |
+| Grok 4.5 | Codex | 44.08% | 19.32% | 30.88% |
+| Grok 4.5 | Claude Code | 45.92% | 32.61% | 39.71% |
 | GLM-5.3-Flash | Claude Code | 68.95% | 48.55% | 52.94% |
 
 </details>
