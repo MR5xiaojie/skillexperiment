@@ -1,10 +1,12 @@
-# Agent Skill Evaluation
+# Agent Skill Experiments
 
-This repository contains skill packages, execution utilities, and evaluation results for adherence to skill requirements. The evaluation covers deliverables, procedures, and limits on agent behavior.
+Imagine asking an agent to organize a folder: archive the files, delete nothing, and leave unrelated folders alone. The result might look tidy, but you would still want to know whether it followed all three instructions.
 
-## Benchmark results
+That is the idea behind this repository. We pair reusable skill packages with concrete tasks, then check the saved outputs and execution records against the instructions. The details include what belongs in the final answer, which steps need to happen along the way, and where the agent should stop.
 
-Nine subcategory scores for seven selected configurations are shown below.
+## The scores
+
+The table shows seven model and harness configurations, with a separate score for each of the nine requirement types.
 
 | Model | Harness | Content | Format | Coverage | Step | Evidence | Tool | Negative | Boundary | Termination |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -16,17 +18,38 @@ Nine subcategory scores for seven selected configurations are shown below.
 | Grok 4.5 | Claude Code | 42.91% | 43.34% | 41.48% | 37.11% | 17.71% | 35.35% | 45.92% | 32.61% | 39.71% |
 | GLM-5.3-Flash | Claude Code | 59.15% | 60.50% | 65.28% | 48.83% | 53.48% | 55.05% | 68.95% | 48.55% | 52.94% |
 
-[Download the displayed configuration scores as CSV](results/configuration_scores.csv)
+[Get the numbers as CSV](results/configuration_scores.csv)
 
-## Evaluation setting
+<details>
+<summary>What does each column mean?</summary>
 
-The seven displayed configurations use the same 96 skill–task pairs, with one scored execution per pair. Claude Opus 5, GPT-5.6 Luna, and Grok 4.5 are each evaluated under Codex and Claude Code. GLM-5.3-Flash is evaluated under Claude Code; its scores here use only the first of three independent execution rounds.
+| Column | What we check |
+| --- | --- |
+| Content | Does the output include the required information? |
+| Format | Does it use the requested structure and presentation? |
+| Coverage | Does it address all the required items? |
+| Step | Were the prescribed actions carried out in the required order? |
+| Evidence | Were sources consulted and supporting evidence provided as required? |
+| Tool | Were the specified tools used as required? |
+| Negative | Did the agent respect explicit prohibitions? |
+| Boundary | Did it stay within the permitted scope? |
+| Termination | Did it meet the specified stopping requirements? |
 
-Deterministic checks and LLM judgments evaluate individual requirements using execution evidence. For each configuration, scores are calculated within each skill and then averaged across skills. Each subcategory includes the skills with assessed requirements of that type. These are adherence scores, with task success evaluated separately.
+</details>
 
-## Repository contents
+## Behind the numbers
 
-- [`complex-skills/`](complex-skills/): skill packages and associated task and scoring specifications.
-- [`runner_core.py`](runner_core.py) and [`runner_retrigger.py`](runner_retrigger.py): execution utilities.
-- [`judge.py`](judge.py): reference judging implementation.
-- [`results/configuration_scores.csv`](results/configuration_scores.csv): the seven displayed configurations and nine subcategory scores, stored as numeric percentages on a 0–100 scale.
+The displayed configurations use the same 96 skill–task pairs. Claude Opus 5, GPT-5.6 Luna, and Grok 4.5 each run under Codex and Claude Code. The GLM-5.3-Flash entry uses Claude Code and comes from the first of three independent execution rounds. Each entry in the table represents one execution per task.
+
+For each column, we calculate the fraction of relevant requirements satisfied within each skill, then average across the skills that have those requirements. A skill without a particular requirement type does not count as a zero. Deterministic checks and LLM judgments assess the saved execution evidence; task completion is evaluated separately.
+
+## Start with one skill
+
+The [capture-triage skill](complex-skills/006-capture-triage/SKILL.md) is a concrete place to start. Read its instructions alongside the [scoring rules](complex-skills/006-capture-triage/SCORING.yaml) and [checks](complex-skills/006-capture-triage/check.py) to see how individual requirements are evaluated.
+
+For the rest of the repository:
+
+- [`complex-skills/`](complex-skills/) contains the skill definitions, supporting resources, and scoring rules.
+- [`runner_core.py`](runner_core.py) and [`runner_retrigger.py`](runner_retrigger.py) handle execution and reruns.
+- [`judge.py`](judge.py) contains the reference judging implementation.
+- [`results/configuration_scores.csv`](results/configuration_scores.csv) holds the nine scores for every configuration shown above.
