@@ -10,6 +10,9 @@
   --blue: #2456df;
   --deep: #173b8f;
   --yellow: #ffd54a;
+  --chart-blue: #7d94c4;
+  --chart-yellow: #e2ce8d;
+  --chart-yellow-border: #9f8b57;
   --mono: ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
   --sans: Inter,"Segoe UI",Arial,sans-serif;
   --serif: Georgia,"Times New Roman",serif;
@@ -717,12 +720,12 @@ tbody tr:hover {
   height: 5px;
   border-radius: 50%;
   margin: 0 6px 1px 0;
-  background: var(--blue);
+  background: var(--chart-blue);
 }
 
 .harness-badge.claude-code:before {
-  background: var(--yellow);
-  box-shadow: 0 0 0 1px #af850c;
+  background: var(--chart-yellow);
+  box-shadow: 0 0 0 1px var(--chart-yellow-border);
 }
 
 .data-message {
@@ -829,12 +832,12 @@ tbody tr:hover {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--blue);
+  background: var(--chart-blue);
 }
 
 .legend-dot.claude-code {
-  background: var(--yellow);
-  box-shadow: 0 0 0 1px #af850c;
+  background: var(--chart-yellow);
+  box-shadow: 0 0 0 1px var(--chart-yellow-border);
 }
 
 .chart-area {
@@ -886,14 +889,14 @@ tbody tr:hover {
 
 .bar-fill {
   height: 100%;
-  background: var(--blue);
+  background: var(--chart-blue);
   border-radius: 0 2px 2px 0;
   min-width: 1px;
 }
 
 .bar-fill.claude-code {
-  background: var(--yellow);
-  border: 1px solid #af850c;
+  background: var(--chart-yellow);
+  border: 1px solid var(--chart-yellow-border);
 }
 
 .chart-value {
