@@ -1,0 +1,147 @@
+{
+  "metrics": [
+    {
+      "key": "content",
+      "label": "Content",
+      "description": "Does the output include the required information?"
+    },
+    {
+      "key": "format",
+      "label": "Format",
+      "description": "Does it use the requested structure and presentation?"
+    },
+    {
+      "key": "coverage",
+      "label": "Coverage",
+      "description": "Does it address all the required items?"
+    },
+    {
+      "key": "step",
+      "label": "Step",
+      "description": "Were the prescribed actions carried out in the required order?"
+    },
+    {
+      "key": "evidence",
+      "label": "Evidence",
+      "description": "Were sources consulted and supporting evidence provided as required?"
+    },
+    {
+      "key": "tool",
+      "label": "Tool",
+      "description": "Were the specified tools used as required?"
+    },
+    {
+      "key": "negative",
+      "label": "Negative",
+      "description": "Did the agent respect explicit prohibitions?"
+    },
+    {
+      "key": "boundary",
+      "label": "Boundary",
+      "description": "Did it stay within the permitted scope?"
+    },
+    {
+      "key": "termination",
+      "label": "Termination",
+      "description": "Did it meet the specified stopping requirements?"
+    }
+  ],
+  "configurations": [
+    {
+      "model": "Claude Opus 5",
+      "harness": "Codex",
+      "content": 56.28,
+      "format": 58.08,
+      "coverage": 50.18,
+      "step": 41.95,
+      "evidence": 50.06,
+      "tool": 44.44,
+      "negative": 56.86,
+      "boundary": 43.96,
+      "termination": 42.65
+    },
+    {
+      "model": "Claude Opus 5",
+      "harness": "Claude Code",
+      "content": 54.09,
+      "format": 55.69,
+      "coverage": 53.83,
+      "step": 52.22,
+      "evidence": 50.7,
+      "tool": 47.47,
+      "negative": 60.65,
+      "boundary": 43.6,
+      "termination": 54.41
+    },
+    {
+      "model": "GPT-5.6 Luna",
+      "harness": "Codex",
+      "content": 52.03,
+      "format": 50.33,
+      "coverage": 50.89,
+      "step": 37.38,
+      "evidence": 35.79,
+      "tool": 35.35,
+      "negative": 56.57,
+      "boundary": 49.4,
+      "termination": 38.24
+    },
+    {
+      "model": "GPT-5.6 Luna",
+      "harness": "Claude Code",
+      "content": 51.52,
+      "format": 46.18,
+      "coverage": 48.2,
+      "step": 39.24,
+      "evidence": 39.75,
+      "tool": 49.49,
+      "negative": 59.02,
+      "boundary": 48.19,
+      "termination": 30.88
+    },
+    {
+      "model": "Grok 4.5",
+      "harness": "Codex",
+      "content": 43.2,
+      "format": 48.61,
+      "coverage": 34.86,
+      "step": 31.0,
+      "evidence": 19.96,
+      "tool": 34.34,
+      "negative": 44.08,
+      "boundary": 19.32,
+      "termination": 30.88
+    },
+    {
+      "model": "Grok 4.5",
+      "harness": "Claude Code",
+      "content": 42.91,
+      "format": 43.34,
+      "coverage": 41.48,
+      "step": 37.11,
+      "evidence": 17.71,
+      "tool": 35.35,
+      "negative": 45.92,
+      "boundary": 32.61,
+      "termination": 39.71
+    },
+    {
+      "model": "GLM-5.3-Flash",
+      "harness": "Claude Code",
+      "content": 59.15,
+      "format": 60.5,
+      "coverage": 65.28,
+      "step": 48.83,
+      "evidence": 53.48,
+      "tool": 55.05,
+      "negative": 68.95,
+      "boundary": 48.55,
+      "termination": 52.94
+    }
+  ],
+  "metadata": {
+    "execution_rounds": {
+      "GLM-5.3-Flash": 1
+    }
+  }
+}

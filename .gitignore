@@ -6,3 +6,11 @@ __pycache__/
 # OS
 .DS_Store
 Thumbs.db
+
+# Local configuration and execution artifacts
+.env
+.env.*
+!.env.example
+workspaces/
+results/runs/
+results/local-*/

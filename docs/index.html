@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="An experiment in how agents follow reusable skill instructions. Explore seven model and harness configurations across nine requirement types.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Agent Skill Experiments">
+  <meta property="og:description" content="Explore how agents follow instructions, one requirement at a time.">
+  <meta property="og:url" content="https://mr5xiaojie.github.io/skillexperiment/">
+  <meta property="og:image" content="https://mr5xiaojie.github.io/skillexperiment/assets/explorer-preview.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#f5f4ee">
+  <title>Agent Skill Experiments — Following the instructions</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#results">Skip to results</a>
+  <header class="site-header wrap">
+    <a class="brand" href="#" aria-label="Agent Skill Experiments home"><span class="brand-mark" aria-hidden="true">a<span>↗</span></span><span>Agent Skill<br>Experiments</span></a>
+    <nav aria-label="Main navigation"><a href="#results">Results</a><a href="#method">Method</a><a class="repo-link" href="https://github.com/MR5xiaojie/skillexperiment">GitHub <span aria-hidden="true">↗</span></a></nav>
+  </header>
+
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="status-dot" aria-hidden="true"></span> A closer look at agent behavior</p>
+        <h1 id="hero-title">The task is done.<br>Were the instructions<br><em>followed?</em></h1>
+        <p class="hero-description">A useful result is only part of the story. We pair agents with reusable skills, then check whether they followed the details: what to produce, how to work, and when to stop.</p>
+        <a class="primary-link" href="#results">Explore the results <span aria-hidden="true">↘</span></a>
+      </div>
+      <div class="example-wrap">
+        <div class="example-card">
+          <div class="card-topline"><span class="eyebrow">An everyday example</span><span class="document-icon" aria-hidden="true">↗</span></div>
+          <h2>“Organize this folder.”</h2>
+          <div class="folder-scene" aria-hidden="true">
+            <div class="file file-back"><span></span><span></span><span></span></div>
+            <div class="file file-front"><span></span><span></span><span></span></div>
+            <div class="folder"><span>project / archive</span><span class="folder-plus">+</span></div>
+          </div>
+          <ol class="example-rules"><li><span>01</span> Archive the files.</li><li><span>02</span> Delete nothing.</li><li><span>03</span> Leave other folders alone.</li></ol>
+          <p class="example-caption">A tidy folder is a start.<br>The instructions tell you what else to check.</p>
+        </div>
+        <span class="card-annotation" aria-hidden="true">Look beyond the final answer.</span>
+      </div>
+    </section>
+
+    <div class="study-strip wrap" aria-label="Experiment scope"><div><strong>96</strong><span>shared skill–task pairs</span></div><div><strong data-configuration-count>7</strong><span>model + harness configurations</span></div><div><strong>9</strong><span>requirement types</span></div><a href="#method">How the experiment works <span aria-hidden="true">↗</span></a></div>
+
+    <section class="results-section wrap section-space" id="results" aria-labelledby="results-title">
+      <div class="section-heading"><div><p class="eyebrow">01 / The results</p><h2 id="results-title">Different instructions.<br>Different outcomes.</h2></div><p>Explore each requirement on its own. Select a column to sort, or narrow the view by model and harness.</p></div>
+      <div class="results-panel">
+        <div class="table-toolbar">
+          <div class="search-field"><label for="model-search">Find a model</label><div class="input-wrap"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m16 16 5 5"></path></svg><input id="model-search" type="search" placeholder="Search models…" autocomplete="off"></div></div>
+          <div class="harness-field"><label for="harness-filter">Harness</label><select id="harness-filter"><option value="">All harnesses</option><option value="Codex">Codex</option><option value="Claude Code">Claude Code</option></select></div>
+          <a class="download-link" href="./data/configuration_scores.csv" download>Download CSV <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="table-meta"><p id="result-count" role="status" aria-live="polite">Loading configurations…</p><span>Higher means more requirements satisfied</span></div>
+        <div class="table-scroll" role="region" aria-label="Configuration scores; scroll horizontally to see all requirements" tabindex="0">
+          <table id="scores-table"><caption class="sr-only">Requirement satisfaction by model and harness. Activate a column heading to sort.</caption><thead><tr id="table-head"><th scope="col">Model</th><th scope="col">Harness</th></tr></thead><tbody id="table-body"></tbody></table>
+        </div>
+        <p id="data-message" class="data-message" role="status">Loading the published score data…</p>
+        <noscript><p class="data-message">Enable JavaScript to explore the table, or <a href="./data/configuration_scores.csv">download the complete CSV</a>.</p></noscript>
+        <div class="table-bottom"><span><span class="cell-swatch" aria-hidden="true"></span> Cell shading follows the score</span><span class="scroll-hint">Scroll across for all nine requirements <span aria-hidden="true">→</span></span><button id="reset-filters" type="button" hidden>Reset view <span aria-hidden="true">↺</span></button></div>
+      </div>
+
+      <div class="comparison" aria-labelledby="comparison-title">
+        <div class="comparison-intro"><p class="eyebrow">A closer comparison</p><h3 id="comparison-title">One requirement<br>at a time.</h3><label for="metric-select">Compare requirement</label><select id="metric-select"><option value="content">Content</option></select><p id="metric-description">Does the output include the required information?</p><div class="chart-legend"><span><i class="legend-dot codex" aria-hidden="true"></i>Codex</span><span><i class="legend-dot claude-code" aria-hidden="true"></i>Claude Code</span></div></div>
+        <div class="chart-area"><div class="chart-scale" aria-hidden="true"><span>0%</span><span>50%</span><span>100%</span></div><div id="metric-chart" class="metric-chart" role="list" aria-label="Content scores by configuration"></div><p class="chart-note">Sorted by the selected requirement. Uses the same filters as the table.</p></div>
+      </div>
+    </section>
+
+    <section class="definitions-band" id="requirements" aria-labelledby="requirements-title"><div class="wrap section-space"><div class="section-heading"><div><p class="eyebrow">02 / What we check</p><h2 id="requirements-title">The details matter.</h2></div><p>Nine questions turn a long set of instructions into specific things we can check.</p></div><div id="metric-definitions" class="definition-grid">
+      <article><span>01</span><h3>Content</h3><p>Does the output include the required information?</p></article>
+      <article><span>02</span><h3>Format</h3><p>Does it use the requested structure and presentation?</p></article>
+      <article><span>03</span><h3>Coverage</h3><p>Does it address all the required items?</p></article>
+      <article><span>04</span><h3>Step</h3><p>Were the prescribed actions carried out in the required order?</p></article>
+      <article><span>05</span><h3>Evidence</h3><p>Were sources consulted and supporting evidence provided as required?</p></article>
+      <article><span>06</span><h3>Tool</h3><p>Were the specified tools used as required?</p></article>
+      <article><span>07</span><h3>Negative</h3><p>Did the agent respect explicit prohibitions?</p></article>
+      <article><span>08</span><h3>Boundary</h3><p>Did it stay within the permitted scope?</p></article>
+      <article><span>09</span><h3>Termination</h3><p>Did it meet the specified stopping requirements?</p></article>
+    </div></div></section>
+
+    <section class="method-section wrap section-space" id="method" aria-labelledby="method-title"><div class="section-heading"><div><p class="eyebrow">03 / Behind the numbers</p><h2 id="method-title">From instructions<br>to evidence.</h2></div><p>We compare the skill's requirements with the saved outputs and execution record.</p></div><div class="method-grid"><article><span class="method-number">01</span><h3>Give the agent a skill.</h3><p>Every displayed configuration uses the same 96 skill–task pairs. Claude Opus 5, GPT-5.6 Luna, and Grok 4.5 run under both Codex and Claude Code. GLM-5.3-Flash runs under Claude Code.</p></article><article><span class="method-number">02</span><h3>Check the execution.</h3><p>Deterministic checks and LLM judgments assess the saved evidence against individual requirements. Completing the task is evaluated separately from following its instructions.</p></article><article><span class="method-number">03</span><h3>Compare like requirements.</h3><p>For each requirement type, calculate the fraction satisfied within each skill, then average across skills with that type. Skills without that requirement type do not count as zeros.</p></article></div><p class="method-note">Each table entry represents one execution per task. The GLM-5.3-Flash entry comes from the first of three independent execution rounds.</p>
+      <div class="source-card"><div><p class="eyebrow">See it for yourself</p><h3>Start with one skill.</h3><p>Read the capture-triage instructions alongside the scoring rules and checks. Follow one requirement from definition to evaluation.</p></div><div class="source-links"><a href="https://github.com/MR5xiaojie/skillexperiment/blob/main/complex-skills/006-capture-triage/SKILL.md"><span>Read the skill <small>SKILL.md</small></span><span aria-hidden="true">↗</span></a><a href="https://github.com/MR5xiaojie/skillexperiment/blob/main/complex-skills/006-capture-triage/SCORING.yaml"><span>Inspect the scoring rules <small>SCORING.yaml</small></span><span aria-hidden="true">↗</span></a><a href="https://github.com/MR5xiaojie/skillexperiment/blob/main/complex-skills/006-capture-triage/check.py"><span>Explore the checks <small>check.py</small></span><span aria-hidden="true">↗</span></a></div></div>
+    </section>
+  </main>
+  <footer class="site-footer wrap"><a class="footer-name" href="#">Agent Skill Experiments</a><span>Small instructions. Observable behavior.</span><a href="https://github.com/MR5xiaojie/skillexperiment">View the repository <span aria-hidden="true">↗</span></a></footer>
+</body>
+</html>

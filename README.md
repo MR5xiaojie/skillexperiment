@@ -1,8 +1,27 @@
 # Agent Skill Experiments
 
+[Explore the results](https://mr5xiaojie.github.io/skillexperiment/) · [Browse the skills](complex-skills/) · [Run locally](#run-the-explorer-locally) · [Contribute](CONTRIBUTING.md)
+
 Imagine asking an agent to organize a folder: archive the files, delete nothing, and leave unrelated folders alone. The result might look tidy, but you would still want to know whether it followed all three instructions.
 
 That is the idea behind this repository. We pair reusable skill packages with concrete tasks, then check the saved outputs and execution records against the instructions. The details include what belongs in the final answer, which steps need to happen along the way, and where the agent should stop.
+
+The [results explorer](https://mr5xiaojie.github.io/skillexperiment/) lets you filter by model or harness, sort the score table, and compare one requirement type at a time. The CSV is there too, if you would rather work with the numbers yourself.
+
+[![Preview of the results explorer](docs/assets/explorer-preview.png)](https://mr5xiaojie.github.io/skillexperiment/)
+
+## Run the explorer locally
+
+You only need Python 3.10 or newer. The page uses plain HTML, CSS, and JavaScript, with no package installation or API keys.
+
+```sh
+git clone https://github.com/MR5xiaojie/skillexperiment.git
+cd skillexperiment
+python scripts/build_site_data.py --check
+python -m http.server 8000 --bind 127.0.0.1 --directory docs
+```
+
+Open [localhost:8000](http://localhost:8000). The viewer reads the checked-in results; opening it does not run any models.
 
 ## The scores
 
@@ -47,9 +66,25 @@ For each column, we calculate the fraction of relevant requirements satisfied wi
 
 The [capture-triage skill](complex-skills/006-capture-triage/SKILL.md) is a concrete place to start. Read its instructions alongside the [scoring rules](complex-skills/006-capture-triage/SCORING.yaml) and [checks](complex-skills/006-capture-triage/check.py) to see how individual requirements are evaluated.
 
+To connect your own tasks and execution environment, see the [runner guide](guides/running-experiments.md). The reference runner expects task inputs and a configured agent CLI; the judge also needs an evidence extractor. Those are separate from the ready-to-use results viewer.
+
 For the rest of the repository:
 
 - [`complex-skills/`](complex-skills/) contains the skill definitions, supporting resources, and scoring rules.
+- [`docs/`](docs/) is the static results explorer.
+- [`scripts/`](scripts/) validates the score file and prepares the viewer's data.
 - [`runner_core.py`](runner_core.py) and [`runner_retrigger.py`](runner_retrigger.py) handle execution and reruns.
 - [`judge.py`](judge.py) contains the reference judging implementation.
 - [`results/configuration_scores.csv`](results/configuration_scores.csv) holds the nine scores for every configuration shown above.
+
+## Updating the results
+
+Edit the CSV, then regenerate the viewer data:
+
+```sh
+python scripts/build_site_data.py
+python scripts/build_site_data.py --check
+python -m unittest discover -s scripts -p 'test_*.py'
+```
+
+Keep the README table in sync with the CSV. The [contribution guide](CONTRIBUTING.md) explains the data format and the checks to run before opening a pull request.
