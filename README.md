@@ -4,7 +4,7 @@ This repository contains skill packages, execution utilities, and evaluation res
 
 ## Benchmark results
 
-Nine subcategory scores for seven selected configurations are shown below. All scores are percentages, rounded to two decimal places. GLM-5.3-Flash reports the first execution round.
+Nine subcategory scores for seven selected configurations are shown below.
 
 | Model | Harness | Content | Format | Coverage | Step | Evidence | Tool | Negative | Boundary | Termination |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
